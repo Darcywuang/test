@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/kmjennison/dfp-prebid-setup.svg?branch=master)](https://travis-ci.org/kmjennison/dfp-prebid-setup)
 
 # Line item creator for Google Ad Manager
-An automated line item generator for Google Ad Manager (previously DFP)<br>**Clone this repository** and follow 3 major steps will guide you to create 425 line items in Google Ad Manager for AIRIS.
+An automated line item generator for Google Ad Manager (previously DFP)<br>**Clone this repository** and follow 3 major steps to create 425 line items in Google Ad Manager for AIRIS.
 1. Creat Google Credentials
 2. Creating a Placement in Google Ad Manager
 3. Input Configuration and run the code
