@@ -55,9 +55,10 @@ _Note: Doubleclick for Publishers (DFP) was recently renamed to Google Ad Manage
 ### Setting Up google.yaml in the repository
 <!--1. Clone this repository.-->
 
-1. Run `pip install -r requirements.txt`.
-2. Make a copy of `googleads.example.yaml` and name it `googleads.yaml`.
-3. In `googleads.yaml`, set the required fields:
+1. From the root of the repository, set up python3 development environment.
+2. Run `pip install -r requirements.txt`.
+3. Make a copy of `googleads.example.yaml` and name it `googleads.yaml`.
+4. In `googleads.yaml`, set the required fields:
    * `application_name` is the name of the Google project you created when creating the service account credentials. It should appear in the top-left of the [credentials page](https://console.developers.google.com/apis/credentials).
    * `network_code` is your GAM network number; e.g., for `https://admanager.google.com/12398712#delivery`, the network code is `12398712`.
 
@@ -89,7 +90,7 @@ Setting | Description | Type
 `DFP_CURRENCY_CODE` | New Taiwan Dollar: ‘TWD'<br>United States Dollar: ‘USD’<br> Japanese Yen: ‘JPY’<br>The currency settings is in the Global Settings of Google Ad Manager | string
 `DFP_NUM_CREATIVES_PER_LINE_ITEM` | Maximum Ad Units on any given webpage of your website | number
 
-Then, from the root of the repository, set up python3 development environment and run:
+Run:
 
 `python -m tasks.add_new_prebid_partner`
 
