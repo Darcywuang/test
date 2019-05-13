@@ -1,8 +1,10 @@
 [![Build Status](https://travis-ci.org/kmjennison/dfp-prebid-setup.svg?branch=master)](https://travis-ci.org/kmjennison/dfp-prebid-setup)
 
 # Line item creator for Google Ad Manager
-An automated line item generator for Google Ad Manager (previously DFP)
-
+An automated line item generator for Google Ad Manager (previously DFP)<br>**Clone this repository** and follow 3 major steps will guide you to create 425 line items in Google Ad Manager for AIRIS.
+1. Creat Google Credentials
+2. Creating a Placement in Google Ad Manager
+3. Input Configuration and run the code
 <!--## Overview
 When setting up Prebid, your ad ops team often has to create [hundreds of line items](http://prebid.org/adops.html) in Google Ad Manager (GAM).
 
@@ -12,9 +14,8 @@ While this tool covers typical use cases, it might not fit your needs. Check out
 
 _Note: Doubleclick for Publishers (DFP) was recently renamed to Google Ad Manager (GAM), so this repository may refer to GAM as DFP._-->
 
-## Getting Started
-1. Clone this repository.
-### Creating Google Credentials
+## Create Google Credentials
+### Create a Sercvice account key
 <!--_You will need credentials to access your GAM account programmatically. This summarizes steps from [GAM docs](https://developers.google.com/ad-manager/docs/authentication) and the Google Ads Python libary [auth guide](https://github.com/googleads/googleads-python-lib)._-->
 
 <!--1. If you haven't yet, sign up for a [GAM account](https://admanager.google.com/).-->
@@ -30,7 +31,7 @@ _Note: Doubleclick for Publishers (DFP) was recently renamed to Google Ad Manage
 6. Click **Create** to download a file containing a `.json` private key. Click **CREATE WITHOUT ROLE** when you see the dialogue.
  ![GDCC_CreateWithoutRole] 
 7.  Rename the private key (`[something].json`) to `key.json` and move it to the root of this repository
-### Set up Google Ad manager
+### Set up Service Account in Google Ad manager
 1. Enable API access to Google Ad Manager
    * Sign into your [Google Ad Manager](https://admanager.google.com/). You must have admin rights.
    * In the **Admin** section, select **Global settings**
@@ -43,7 +44,7 @@ _Note: Doubleclick for Publishers (DFP) was recently renamed to Google Ad Manage
      * Click **Save**.
      ![GAM_SetUpServiceAccount] 
 
-### Creating a Placement in Google Ad Manager
+## Create a Placement in Google Ad Manager
 
 1. Create a Placement in Google Ad manager
    * In the **Inventory** section, select **Ad units**, select **Placements** tab, and click **New placement** button.
@@ -51,8 +52,8 @@ _Note: Doubleclick for Publishers (DFP) was recently renamed to Google Ad Manage
    * Give the new placement a name. In the Inventory section, select all the ad units that are specified in the configuration csv file that you previously uploaded to AIRIS
    ![GAM_SetUpNewPlacement]
    * Click **Save**.
-
-### Setting Up google.yaml in the repository
+## Set Up Configuration and Run the Code
+### Set Up google.yaml in the repository
 <!--1. Clone this repository.-->
 
 1. From the root of the repository, set up python3 development environment.
@@ -62,7 +63,7 @@ _Note: Doubleclick for Publishers (DFP) was recently renamed to Google Ad Manage
    * `application_name` is the name of the Google project you created when creating the service account credentials. It should appear in the top-left of the [credentials page](https://console.developers.google.com/apis/credentials).
    * `network_code` is your GAM network number; e.g., for `https://admanager.google.com/12398712#delivery`, the network code is `12398712`.
 
-### Verifying Setup
+### Verify Setup
 Let's try it out! From the top level directory, run
 
 `python -m dfp.get_orders`
@@ -75,7 +76,7 @@ If you see the error message, `ValueError: unknown locale: UTF-8`, please run
 
 and try again.
 
-### Setting up **local_settings.py**
+### Set up **local_settings.py**
 
 1. Make a copy of `local_settings.example.py` and name it `local_settings.py`.
 2. Modify the following settings in `local_settings.py`:
@@ -90,7 +91,7 @@ Setting | Description | Type
 `DFP_CURRENCY_CODE` | New Taiwan Dollar: ‘TWD'<br>United States Dollar: ‘USD’<br> Japanese Yen: ‘JPY’<br>The currency settings is in the Global Settings of Google Ad Manager | string
 `DFP_NUM_CREATIVES_PER_LINE_ITEM` | Maximum Ad Units on any given webpage of your website | number
 
-Run:
+**Run:**
 
 `python -m tasks.add_new_prebid_partner`
 
